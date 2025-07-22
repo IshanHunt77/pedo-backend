@@ -71,9 +71,8 @@ export const VectorDb_Embeddings = async (req: Request, res: Response) => {
       };
       await client.json.set(`jdoc:${count}`, '$', jdoc);
     }
-
-    console.log("Embeddings completed successfully");
     await client.quit();
+    console.log("Embeddings completed successfully");
     return res.status(201).json({ msg: 'Embeddings done', count });
   } catch (error) {
     console.error('Error during embeddings:', error);

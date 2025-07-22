@@ -10,12 +10,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.redisConnect = void 0;
+const dotenv_1 = require("dotenv");
+(0, dotenv_1.configDotenv)();
 const redis_1 = require("redis");
 const redisConnect = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const client = (0, redis_1.createClient)({ url: 'redis://localhost:6379' });
+        console.log('Redis Password:', process.env.REDIS_CLOUD_PASSWORD);
+        const client = (0, redis_1.createClient)({
+            username: 'default',
+            password: process.env.REDIS_CLOUD_PASSWORD,
+            socket: {
+                host: 'redis-19381.c263.us-east-1-2.ec2.redns.redis-cloud.com',
+                port: 19381
+            }
+        });
+        client.on('error', err => console.log('Redis Client Error', err));
         yield client.connect();
-        console.log('redis connected');
+        console.log("redis connected"); // >>> bar
         return client;
     }
     catch (error) {

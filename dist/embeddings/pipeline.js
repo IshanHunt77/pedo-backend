@@ -86,8 +86,8 @@ const VectorDb_Embeddings = (req, res) => __awaiter(void 0, void 0, void 0, func
             };
             yield client.json.set(`jdoc:${count}`, '$', jdoc);
         }
-        console.log("Embeddings completed successfully");
         yield client.quit();
+        console.log("Embeddings completed successfully");
         return res.status(201).json({ msg: 'Embeddings done', count });
     }
     catch (error) {
