@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "npm install --platform=linux --arch=x64 sharp",
-    "build": "tsc"
-  },
+  "build": "npm rebuild sharp && tsc"
+}
+,
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -22,5 +21,9 @@
   "devDependencies": {
     "@types/express": "^5.0.3",
     "typescript": "^5.8.3"
-  }
+  },
+  "engines": {
+  "node": "20.x"
+}
+
 }
