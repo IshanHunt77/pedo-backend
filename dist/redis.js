@@ -20,8 +20,8 @@ const redisConnect = () => __awaiter(void 0, void 0, void 0, function* () {
             username: 'default',
             password: process.env.REDIS_CLOUD_PASSWORD,
             socket: {
-                host: 'redis-19381.c263.us-east-1-2.ec2.redns.redis-cloud.com',
-                port: 19381
+                host: 'redis-12340.crce179.ap-south-1-1.ec2.redns.redis-cloud.com',
+                port: 12340
             }
         });
         client.on('error', err => console.log('Redis Client Error', err));
